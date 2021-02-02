@@ -29,5 +29,11 @@ module Kredis
         include Kredis::Attributes
       end
     end
+
+    initializer "kredis.record" do
+      ActiveSupport.on_load(:active_record) do
+        require "kredis/record"
+      end
+    end
   end
 end
